@@ -119,7 +119,10 @@ extension SignUpViewController {
                     
                     objAppShareData.SaveUpdateUserInfoFromAppshareData(userDetail: user_details)
                     objAppShareData.fetchUserInfoFromAppshareData()
-                    self.setRootController()
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MembershipViewController")as! MembershipViewController
+                    vc.isComingFrom = ""
+                    self.navigationController?.pushViewController(vc, animated: true)
+                   // self.setRootController()
                     
                 }
                 else {

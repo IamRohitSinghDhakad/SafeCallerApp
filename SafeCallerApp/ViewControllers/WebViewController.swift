@@ -31,6 +31,9 @@ class WebViewController: UIViewController {
             loadUrl = "page/terms"
         case "About the App":
             loadUrl = "page/about"
+        case "EULA":
+            loadUrl = "page/EULA"
+            
         default:
             break
         }

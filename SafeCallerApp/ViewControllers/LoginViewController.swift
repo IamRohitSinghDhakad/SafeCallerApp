@@ -102,7 +102,16 @@ extension LoginViewController{
                     
                     objAppShareData.SaveUpdateUserInfoFromAppshareData(userDetail: user_details)
                     objAppShareData.fetchUserInfoFromAppshareData()
-                    self.setRootController()
+                    
+                    if objAppShareData.UserDetail.strPlan_id == "0"{
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MembershipViewController")as! MembershipViewController
+                        vc.isComingFrom = ""
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else{
+                        self.setRootController()
+                    }
+                
+                    
                     
                 }
                 else {

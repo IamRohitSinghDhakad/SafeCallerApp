@@ -22,6 +22,7 @@ class NumberViewController: UIViewController {
     @IBOutlet weak var imgVwTickYellow: UIImageView!
     @IBOutlet weak var imgVwTickgreen: UIImageView!
     @IBOutlet weak var imgVwTickRed: UIImageView!
+    @IBOutlet weak var tfArea: UITextField!
     
     
     var arrComments = [CommentsModel]()
@@ -40,8 +41,8 @@ class NumberViewController: UIViewController {
         self.tblVw.register(nib, forCellReuseIdentifier: "NumberTableViewCell")
         
         resetImages()
-        strColor = "Yellow"
-        self.imgVwTickYellow.isHidden = false
+        strColor = "Green"
+        self.imgVwTickgreen.isHidden = false
         
         self.call_getNumberDetais(strMobileNumber: self.strMobileNumber)
     }
@@ -107,6 +108,9 @@ extension NumberViewController : UITableViewDataSource, UITableViewDelegate{
         let obj = self.arrComments[indexPath.row]
         
         cell.lblName.text = obj.strName
+        cell.lblDescription.text = obj.strComment
+        cell.lblArea.text = obj.strArea
+        
         if obj.strColor == "Red"{
             cell.imgVwColor.image = #imageLiteral(resourceName: "red")
         }else if obj.strColor == "Yellow"{
@@ -126,21 +130,20 @@ extension NumberViewController : UITableViewDataSource, UITableViewDelegate{
         }
         
         if objAppShareData.UserDetail.strUser_id == obj.strUserID{
-            cell.chatbtnHgtCons.constant = 0
+           // cell.chatbtnHgtCons.constant = 0
             cell.vwContainChat.isHidden = true
         }else{
-            cell.chatbtnHgtCons.constant = 20
+            //cell.chatbtnHgtCons.constant = 20
             cell.vwContainChat.isHidden = false
         }
         
         if indexPath.row % 2 == 0{
             cell.vwLeft.isHidden = true
             cell.vwRight.isHidden = false
-            cell.lblDescription.text = obj.strComment
+            
         }else{
             cell.vwLeft.isHidden = false
             cell.vwRight.isHidden = true
-            cell.lblDescription.text = obj.strComment
         }
         
         cell.btnOnChat.tag = indexPath.row
@@ -241,7 +244,8 @@ extension NumberViewController {
         dicrParam = ["user_id":objAppShareData.UserDetail.strUser_id,
                      "mobile_number":strMobileNumber,
                      "comment":self.txtVwFeedback.text!,
-                     "color":self.strColor]as [String:Any]
+                     "color":self.strColor,
+                     "area":self.tfArea.text!]as [String:Any]
         
         url = WsUrl.url_add_comment
         

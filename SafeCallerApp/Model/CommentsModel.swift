@@ -15,6 +15,7 @@ class CommentsModel:NSObject{
     var strUserID : String?
     var strComment : String?
     var strColor : String?
+    var strArea : String?
     var strUserImage : String?
     
     init(from dictionary: [String: Any]) {
@@ -22,6 +23,10 @@ class CommentsModel:NSObject{
         
         if let value = dictionary["name"] as? String {
             strName = value
+        }
+        
+        if let value = dictionary["area"] as? String {
+            strArea = value
         }
         
         if let value = dictionary["comment"] as? String {

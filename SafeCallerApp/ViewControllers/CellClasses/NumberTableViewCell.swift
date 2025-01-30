@@ -19,6 +19,7 @@ class NumberTableViewCell: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var chatbtnHgtCons: NSLayoutConstraint!
     @IBOutlet weak var vwContainChat: UIView!
+    @IBOutlet weak var lblArea: UILabel!
     
     
     

@@ -10,8 +10,8 @@ import UIKit
 
 
 
-let BASE_URL = "https://ambitious.in.net/Arun/safecaller/index.php/api/"//Local
-//let BASE_URL = "https://socialgamepro.com/admin/index.php/api/"//Live
+//let BASE_URL = "https://ambitious.in.net/Arun/safecaller/index.php/api/"//Local
+let BASE_URL = "https://safecallerapp.com/index.php/api/"//Live
 
 
 struct WsUrl{
@@ -30,11 +30,11 @@ struct WsUrl{
     static let url_ContactUs = BASE_URL + "contact_us"
     static let url_GetCountry = BASE_URL + "get_country"
     static let url_GetMembershipPlans = BASE_URL + "get_plans"
-    static let url_FollowUser = BASE_URL + "follow_user"
+    static let url_ActivateMembership = BASE_URL + "activate_membership"
     static let url_DeleteNotification = BASE_URL + "delete_notification"
     static let url_GetNotofication = BASE_URL + "get_notification"
     static let url_GetConversation = BASE_URL + "get_conversation"
-    static let url_InsertChat = BASE_URL + "insert_chat"
+    static let url_delete_user_account = BASE_URL + "delete_user_account"
     static let url_GetChat = BASE_URL + "get_chat"
     static let url_UpdateProfile = BASE_URL + "update_profile"
     static let url_ReportUser = BASE_URL + "report_user"
@@ -44,6 +44,7 @@ struct WsUrl{
     static let url_clearConversation = BASE_URL + "clear_conversation"
     static let url_insertChat = BASE_URL + "insert_chat"
     static let url_getChatList = BASE_URL + "get_chat"
+    
 }
 
 

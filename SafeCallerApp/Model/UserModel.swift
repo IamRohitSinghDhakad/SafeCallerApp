@@ -34,7 +34,8 @@ class UserModel: NSObject {
     var mobile: String?
     var password : String?
     var gender : String?
-    
+    var strPlan_id : String?
+    var dicActivePlan = [String:Any]()
     
     
     //    init(dict : [String : Any]) {
@@ -44,6 +45,18 @@ class UserModel: NSObject {
         if let userID = dictionary["user_id"]as? String{
             strUser_id = userID
         }
+        
+        if let dicActivePlan = dictionary["active_plan"]as? [String:Any]{
+            self.dicActivePlan = dicActivePlan
+            print(self.dicActivePlan)
+        }
+        
+        if let plan_id = dictionary["plan_id"]as? String{
+            strPlan_id = plan_id
+        }else if let plan_id = dictionary["plan_id"]as? Int{
+            strPlan_id = "\(plan_id)"
+        }
+        
         if let firstname = dictionary["name"]as? String{
             name = firstname
         }
